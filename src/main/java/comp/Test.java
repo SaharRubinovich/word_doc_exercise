@@ -9,7 +9,6 @@ public class Test {
 
         Employee[] employees = new Employee[MAX_EMPLOYEES];
 
-
         employees[0] = new Secretary("Merav", 8_000, "Caffe");
         employees[1] = new Secretary("Ron", 9_000, "Apple");
         employees[2] = new Manager("Zef", 23_000, "Sales");
@@ -28,7 +27,7 @@ public class Test {
         Company company = new Company("WTF?!");
         System.out.println(company.toString());
         for (int index = 0; index < employees.length; index++) {
-            Manager.addEmployee(company.getEmployeesList(), employees[index]);
+            company.addEmployee(employees[index]);
         }
         System.out.println(company.toString());
         try {

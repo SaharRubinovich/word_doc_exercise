@@ -24,14 +24,6 @@ public class Manager extends Employee {
 
     //methods
 
-    public static void addEmployee(List<Employee> employees, Employee employee) {
-        employees.add(employee);
-    }
-
-    public static void removerEmployee(List<Employee> employeeList, Employee employee) {
-        employeeList.remove(employee);
-    }
-
     @Override
     public String toString() {
         String[] typeName = this.getTypeName(this);

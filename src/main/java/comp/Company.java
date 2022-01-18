@@ -5,13 +5,14 @@ import java.util.List;
 
 public class Company {
     private String name;
-    private static List<Employee> employeesList = new ArrayList<>();
+    private List<Employee> employeesList;
     public static int numOfEmployees = 0;
 
     //c'tors
 
     public Company(String name) {
         setName(name);
+        this.employeesList = new ArrayList<>();
     }
 
     //setters and getters
@@ -29,8 +30,15 @@ public class Company {
     }
 
     //methods
-    public void getName(Employee employee) {
-        employee.getName();
+    public String getName(Employee employee) {
+        return employee.getName();
+    }
+    public void addEmployee(Employee employee) {
+        this.getEmployeesList().add(employee);
+    }
+
+    public  void removerEmployee(Employee employee) {
+        this.getEmployeesList().remove(employee);
     }
 
     private double calcSum(double sum, Employee employee) {
@@ -39,7 +47,7 @@ public class Company {
     }
 
     public double getAverageSalary() throws CompanyReportException {
-        if (employeesList.size() == 0) {
+        if (employeesList.size() == 0 || employeesList == null) {
             throw new CompanyReportException(this.name, "Average Salary Report");
         }
         double sum = 0, avg;
@@ -50,7 +58,7 @@ public class Company {
     }
 
     public double getManagementSalary() throws CompanyReportException {
-        if (employeesList.size() == 0) {
+        if (employeesList.size() == 0 || employeesList == null) {
             throw new CompanyReportException(this.name, "Average Salary Report");
         }
         double sum = 0, avg;
@@ -65,7 +73,7 @@ public class Company {
     }
 
     public double getYearlyPayment() throws CompanyReportException {
-        if (employeesList.size() == 0) {
+        if (employeesList.size() == 0 || employeesList == null) {
             throw new CompanyReportException(this.name, "Average Salary Report");
         }
         double sum = 0;
@@ -77,15 +85,15 @@ public class Company {
     }
 
     public int getTotalNumOfEmployee() throws CompanyReportException {
-        if (employeesList.size() == 0) {
+        if (employeesList.size() == 0 || employeesList == null) {
             throw new CompanyReportException(this.name, "Average Salary Report");
         }
         return employeesList.size();
     }
 
     public int getTotalNumOfManagers() throws CompanyReportException {
-        if (employeesList.size() == 0) {
-            throw new CompanyReportException(this.name, "Average Salary Report");
+        if (employeesList.size() == 0 || employeesList == null) {
+            throw new CompanyReportException(this.name, "Total num of Managers Report");
         }
         int counter = 0;
         for (int index = 0; index < employeesList.size(); index++) {
